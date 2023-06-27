@@ -15,10 +15,13 @@ menu = [{'title': "О сайте", 'url_name': 'about'},
 
 def index(request):
     posts = Women.objects.all()
+    cats = Category.objects.all()
     context = {
         'posts': posts,
+        'cats': cats,
         'menu': menu,
-        'title': 'Главная страница'
+        'title': 'Главная страница',
+        'cat_selected': 0,
     }
 
     return render(request, 'women/index.html', context=context)
